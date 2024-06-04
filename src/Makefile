@@ -9,8 +9,17 @@ RM = rm -f
 $(TARGET): $(SRC)
 	$(CC) $(CFLAGS) $? -o $@
 
-%.o: %.c
-	$(CC) -c $<
+createProject.o : createProject.c
+	$(CC) $(CFLAGS) -c $<
+
+customErrorManagement.o : customErrorManagement.c
+
+help.o : help.c
+
+log.o : log.c
+
+main.o : main.c
+
 
 clean:
 	$(RM) $(src) $(TARGET)

@@ -1,4 +1,6 @@
+#pragma once
 #include "../include/dec.h"
+#include <errno.h>
 static int doesArgumentExist(char * argument);
 bool True = T;
 bool False = F;
@@ -35,7 +37,7 @@ int main(int argc, char ** argv){
 
     //check user enterterd the right number of command line argument
     if(argc != 3){
-        printf("Wrong argument entered... Exiting");
+        fprintf(stderr,"Wrong argument entered... Exiting");
         return -1;
     }
     else{
@@ -43,17 +45,31 @@ int main(int argc, char ** argv){
         if(strcmp(argv[1],"pm") == 0 || strcmp(argv[1], "PM") == 0){
             //check if the given argument exist first
             if(doesArgumentExist(argv[2]) == 1){
+                //help
                 if(strcmp(argv[2],"--help") == 0){ 
-                    printf("\nHelp\n");
+                    //fprintf("\nHelp\n");
                     help();
                 }
 
-                if(strcmp(argv[2],"init") == 0){
-                    printf("Initialising project");
+                //info
+                if(strcmp(argv[2],"--info") == 0){ 
+                    //fprintf("\nInfo\n");
+                    help();
+                }
+
+                //initialise
+                if(strcmp(argv[2],"--init") == 0){
+                    fprintf(stdin,"Initialising Project");
+                }
+
+                //version
+                if(strcmp(argv[2],"--version") == 0){ 
+                    //fprintf(stdin,"\nversion\n");
+                    help();
                 }
             }
             else{
-                printf("Argument does not exists");
+                fprintf(stderr,"Argument does not exists");
                 exit(-1);
             }
             

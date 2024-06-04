@@ -5,6 +5,8 @@ sleep 3
 #build
 make
 
+#set alias
+
 
 
 echo  "#     #    #     #####  #     #  #####  ####### #     # 
