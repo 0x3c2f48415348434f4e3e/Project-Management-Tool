@@ -1,3 +1,4 @@
+#pragma once
 #include "../include/dec.h"
 //file for help command
 void help(void){
