@@ -2,7 +2,7 @@
 #include "../include/dec.h"
 
 static void createDirectory(char* dirName);
-static void input();
+static char* input();
 
 int createProject(char* projectName){
     //Check if the given project name exist within the current working directory
@@ -45,14 +45,18 @@ void boilerPlateInitialization(){
     for(i;i<sizeOfArray; i++){
         printf("%s",possibleProjects[i]);
     }
+
+    char *ProjectChoice = input();
+    
 }
 
-static  void input(){
+static char* input(){
     //so what we want to do is allow user to enter
     //characters in the input and we read from the stdin
     int pointer = 0;
     int numOfResize = 1;
-    char *userInput = (char*) malloc(sizeof(char)*BUFFERSIZE);
+    static char *userInput;
+    userInput = (char*) malloc(sizeof(char)*BUFFERSIZE);
     int character = getc(stdin);
    //inputs in c
    //https://www.geeksforgeeks.org/eof-and-feof-in-c/
@@ -80,6 +84,8 @@ static  void input(){
         }
     }
     printf("%s\n",userInput);
+
+    return userInput;
     
     free(userInput);
 
