@@ -1,10 +1,10 @@
-CC = gcc
-CFLAGS = -Wall -pedantic
-TARGET = projectmanagementtool
-SRC = $(wildcard *.c)
-OBJ = $(wildcard *.o)
-#src=createProject.c main.c
+CC := gcc
+CFLAGS := -Wall -pedantic
+TARGET := projectmanagementtool
+SRC := $(wildcard *.c)
+OBJ := $(wildcard *.o)
 RM = rm -f
+OBJFOLDER = OBJ
 
 $(TARGET): $(SRC)
 	$(CC) $(CFLAGS) $? -o $@

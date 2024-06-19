@@ -4,6 +4,12 @@ FOr help run the command **PM --help**
 # Core Features
 1. Boilerplate Repository Initialization: Allow users to easily initialize a project with a pre-configured boilerplate repository tailored to various project types (e.g., web development, mobile app development, data science projects).
 
+Setting up Boilerplate repositry can be quite challenging, but there are multiple approaches for this including:
+1. cookiecutter - This is a templating library
+2. Automating with scripts - Can create scripts to automate setup process. These scripts can copy files, set up directories and run necessary commands to initialise a project
+3. For more complicated setups like Android, using Docker can simplify the process. So you can use Docker images with pre-configured enviornments for different types of projects. These images can then be used to start new projects without having to set up everything manually
+
+
 2. Custom Templates: Enable users to create and use custom project templates, allowing for flexibility in project setups and configurations.
 
 3. Dependency Management: Integrate dependency management functionality to help users easily add, update, and remove project dependencies such as libraries, frameworks, and packages.

@@ -1,4 +1,3 @@
-#pragma once
 #include "../include/dec.h"
 
 static void createDirectory(char* dirName);
@@ -24,29 +23,27 @@ static void createDirectory(char* dirName){
 //make direcotry
 //https://www.geeksforgeeks.org/create-directoryfolder-cc-program/
 
-if(mkdir(dirName,MODE) == -1){
-    int error = errno;
-    fprintf(stderr,strerror(error));
-    exit(-1);
-}
+	if(mkdir(dirName,MODE) == -1){
+    		int error = errno;
+    		fprintf(stderr,strerror(error));
+    		exit(-1);
+	}
 //0777 permission in c
 
-fprintf(stdout,"Directory created");
+	fprintf(stdout,"Directory created");
 }
 
-void boilerPlateInitialization(){
-    //prompt user to enter the project they are working on
-    char *possibleProjects[] = {"Web development\nTechnologies\n1.) HTML\n2.) CSS\n3.) Javascript"}; //For now only support web development
-    int sizeOfArray = sizeof(possibleProjects) / sizeof(possibleProjects[0]);
-    //prompt user to enter what they want
-    fprintf(stdin,"What boiler plate would you like to create");
-    register int i = 0;
+void boilerPlateInitializationWithCookieCutter(){
+    //This will use the functionality of CookieCutter to get a list of project within the URL and show users the possible projects available
+    char URL = "https://github.com/"
 
-    for(i;i<sizeOfArray; i++){
-        printf("%s",possibleProjects[i]);
-    }
 
+//The below URL are example structure of the URL we want to donwload the template from, so in that case, we have to actually search for the name of the github project, meaning we might need to scrape the github part
+//https://github.com/cookiecutter/cookiecutter
+//https://github.com/cookiecutter/cookiecutter-django
     char *ProjectChoice = input();
+
+    free(ProjectChoice);
     
 }
 
@@ -86,8 +83,4 @@ static char* input(){
     printf("%s\n",userInput);
 
     return userInput;
-    
-    free(userInput);
-
-    return;
 }
